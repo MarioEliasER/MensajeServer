@@ -3,10 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MensajesClientHTTP"
+        xmlns:local="clr-namespace:MensajesClientHTTP" xmlns:viewmodels="clr-namespace:MensajesClientHTTP.ViewModels" xmlns:views="clr-namespace:MensajesClientHTTP.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+    <Window.DataContext>
+        <viewmodels:MensajesViewModel></viewmodels:MensajesViewModel>
+    </Window.DataContext>
+    <views:MainView></views:MainView>
 </Window>
