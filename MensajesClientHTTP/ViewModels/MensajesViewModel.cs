@@ -25,7 +25,25 @@ namespace MensajesClientHTTP.ViewModels
 
         private void DiscoveryService_ServidorRecibido(object? sender, ServerModel e)
         {
-            Servidores.Add(e);
+            var server = Servidores.FirstOrDefault(x=>x.NombreServer == e.NombreServer);
+            if (server == null)
+            {
+                //Agregar si no está
+                Servidores.Add(e);
+            }
+            else
+            {
+                //Editar el keepalive si está
+                server.KeepAlive = e.KeepAlive;
+            }
+            foreach (var s in Servidores.ToList())
+            {
+                //Eliminar si excedió el keepalive
+                if ((DateTime.Now - e.KeepAlive).TotalSeconds > 30)
+                {
+                    Servidores.Remove(s);
+                }
+            }
         }
     }
 }
