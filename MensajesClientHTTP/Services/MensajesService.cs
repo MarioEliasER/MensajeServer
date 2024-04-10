@@ -14,7 +14,7 @@ namespace MensajesClientHTTP.Services
     {
         public async void EnviarMensaje(ServerModel server, MensajeDTO mensaje)
         {
-            var url = $"http://{server.IPEndPoint.Address.ToString()}:7002/mensajitos/?texto={mensaje.Texto}&colorletra={mensaje.ColorLetra}&colorfondo={mensaje.ColorFondo}";
+            var url = $"http://{server.IPEndPoint?.Address.ToString()}:7002/mensajitos/?texto={mensaje.Texto}&colorletra={mensaje.ColorLetra}&colorfondo={mensaje.ColorFondo}";
             HttpClient cliente = new();
             await cliente.GetStringAsync(url);
         }
