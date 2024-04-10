@@ -19,7 +19,7 @@
         <DataGrid ItemsSource="{Binding Servidores}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding NombreServer}" Width="*" Header="Nombre del servidor"></DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding IPEndPoint.IPAddress}" Header="Dirección IP"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding IPEndpoint.IPAddress}" Header="Dirección IP"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding KeepAlive}" Header="Ultima Conexion"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
