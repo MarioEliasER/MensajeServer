@@ -9,9 +9,9 @@
     <DockPanel>
         <StackPanel DockPanel.Dock="Bottom" Width="250">
             <Label>Texto:</Label>
-            <TextBox AcceptsReturn="True" Height="50"></TextBox>
+            <TextBox AcceptsReturn="True" Height="50" Text="{Binding Mensajes.Texto}"></TextBox>
             <Label>Color de letra:</Label>
-            <ComboBox ItemsSource="{Binding colores}">
+            <ComboBox ItemsSource="{Binding colores}" SelectedItem="{Binding Mensajes.ColorLetra}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <WrapPanel>
@@ -22,7 +22,7 @@
                 </ComboBox.ItemTemplate>
             </ComboBox>
             <Label>Color de fondo:</Label>
-            <ComboBox ItemsSource="{Binding colores}">
+            <ComboBox ItemsSource="{Binding colores}" SelectedItem="{Binding Mensajes.ColorFondo}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <WrapPanel>
@@ -32,15 +32,14 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-            <Button Content="Enviar" HorizontalAlignment="Center" Margin="5"></Button>
+            <Button Content="Enviar" HorizontalAlignment="Center" Margin="5" Command="{Binding EnviarCommand}"></Button>
         </StackPanel>
-        <DataGrid ItemsSource="{Binding Servidores}" AutoGenerateColumns="False">
+        <DataGrid ItemsSource="{Binding Servidores}" AutoGenerateColumns="False" SelectedItem="{Binding Seleccionado}">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding NombreServer}" Width="*" Header="Nombre del servidor"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding IPEndPoint.Address}" Header="Dirección IP"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding KeepAlive}" Header="Ultima Conexion"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-
     </DockPanel>
 </UserControl>
